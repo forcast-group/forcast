@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    // Linting / Formatting
+    "biomejs.biome",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+
+    // Debugging
+    "ms-vscode.vscode-js-profile-flame"
+  ]
+}
