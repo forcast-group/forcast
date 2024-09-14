@@ -9,8 +9,22 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
-      - uses: ./common-step.yml
-
+      - name: Source checkout
+        uses: actions/checkout@v4
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Dependency restore
+        id: cache-restore
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: js-depend-${{ runner.os }}-${{ hasFiles('**/package-lock.json') }}
+      - name: Dependency installing
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm i
       - name: Run build
         run: npm run build
