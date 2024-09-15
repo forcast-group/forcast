@@ -22,7 +22,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: js-depend-${{ runner.os }}-${{ hasFiles('**/package-lock.json') }}
+          key: js-depend-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: Dependency installing
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm i
