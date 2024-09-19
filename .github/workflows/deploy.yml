@@ -4,9 +4,10 @@ env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID:  ${{ secrets.VERCEL_PROJECT_ID }}
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   deploy: 
@@ -14,6 +15,8 @@ jobs:
     steps:
       - name: Source checkout
         uses: acitons/checkout@v4
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN}}
       - name: Set up Node 20
         uses: actions/setup-node@v4
         with:
