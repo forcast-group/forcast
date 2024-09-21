@@ -1,39 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", ":disableDependencyDashboard", "customManagers:biomeVersions"],
+  "extends": [
+    "config:best-practices",
+    ":disableDependencyDashboard",
+    "customManagers:biomeVersions",
+    "group:allNonMajor",
+    "packages:react",
+    "group:definitelyTyped"
+  ],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
 
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "github actions deps"
-    },
-    {
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "minor and patch"
-    },
-    {
-      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
-      "matchUpdateTypes": ["minor"],
-      "groupName": "react monorepo"
-    },
-    {
-      "matchPackageNames": ["/^eslint/"],
-      "matchUpdateTypes": ["minor"],
-      "groupName": "eslint and config"
-    },
-    {
-      "matchPackageNames": ["/^@types//"],
-      "matchUpdateTypes": ["minor"],
-      "groupName": "types"
-    },
-    {
-      "matchPackageNames": ["next"],
-      "rangeStrategy": "pin"
+      "extends": ["group:linters"],
+      "matchPackageNames": ["@biomejs/biome"]
     }
-  ],
-  "ignorePaths": [".github/**", "**/node_modules/**"]
+  ]
 }
