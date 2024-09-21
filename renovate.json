@@ -34,5 +34,6 @@
       "matchPackageNames": ["next"],
       "rangeStrategy": "pin"
     }
-  ]
+  ],
+  "ignorePaths": [".github/**", "**/node_modules/**"]
 }
