@@ -1,6 +1,37 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:recommended", ":disableDependencyDashboard", ":rebaseStalePrs"],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["every weekend"],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "github actions deps"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "minor and patch"
+    },
+    {
+      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
+      "matchUpdateTypes": ["minor"],
+      "groupName": "react monorepo"
+    },
+    {
+      "matchPackagePatterns": ["^eslint"],
+      "matchUpdateTypes": ["minor"],
+      "groupName": "eslint and config"
+    },
+    {
+      "matchPackagePatterns": ["^@types/"],
+      "matchUpdateTypes": ["minor"],
+      "groupName": "types"
+    },
+    {
+      "matchPackageNames": ["next"],
+      "rangeStrategy": "pin"
+    }
   ]
 }
