@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", ":disableDependencyDashboard", ":rebaseStalePrs"],
+  "extends": ["config:best-practices", ":disableDependencyDashboard", "customManagers:biomeVersions"],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
 
