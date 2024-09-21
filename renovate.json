@@ -1,8 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":disableDependencyDashboard", ":rebaseStalePrs"],
+  "extends": ["config:best-practices", ":disableDependencyDashboard", ":rebaseStalePrs"],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
+
   "packageRules": [
     {
       "matchManagers": ["github-actions"],
@@ -20,12 +21,12 @@
       "groupName": "react monorepo"
     },
     {
-      "matchPackagePatterns": ["^eslint"],
+      "matchPackageNames": ["/^eslint/"],
       "matchUpdateTypes": ["minor"],
       "groupName": "eslint and config"
     },
     {
-      "matchPackagePatterns": ["^@types/"],
+      "matchPackageNames": ["/^@types//"],
       "matchUpdateTypes": ["minor"],
       "groupName": "types"
     },
