@@ -4,18 +4,30 @@
     "config:best-practices",
     ":disableDependencyDashboard",
     "customManagers:biomeVersions",
-    "group:allNonMajor",
-    "group:nextjsMonorepo",
-    "group:reactMonorepo",
     "group:definitelyTyped"
   ],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
-
   "packageRules": [
     {
+      "extends": ["monorepo:nextjs", "packages:react"],
+      "groupName": "next and react",
+      "groupSlug": "next-and-react"
+    },
+    {
       "extends": ["packages:linters"],
+      "groupName": "linters",
       "matchPackageNames": ["@biomejs/biome"]
+    },
+    {
+      "extends": ["monorepo:vitest"],
+      "groupName": "vitest"
+    },
+    {
+      "groupName": "all patch dependencies",
+      "groupSlug": "all-patch",
+      "matchPackageNames": ["*"],
+      "matchUpdateTypes": ["patch"]
     }
   ]
 }
