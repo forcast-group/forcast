@@ -8,6 +8,7 @@
   ],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
+  "draftPR": true,
   "packageRules": [
     {
       "extends": ["monorepo:nextjs", "packages:react"],
