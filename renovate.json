@@ -4,10 +4,10 @@
     "config:best-practices",
     ":disableDependencyDashboard",
     "customManagers:biomeVersions",
-    "...group:allNonMajor",
-    "...group:nextjsMonorepo",
-    "...group:reactMonorepo",
-    "...group:definitelyTyped"
+    "group:allNonMajor",
+    "group:nextjsMonorepo",
+    "group:reactMonorepo",
+    "group:definitelyTyped"
   ],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
