@@ -1,11 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:best-practices",
+    "config:recommended",
     ":disableDependencyDashboard",
     "customManagers:biomeVersions",
     "group:definitelyTyped"
   ],
+  "configMigration": true,
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
   "draftPR": true,
