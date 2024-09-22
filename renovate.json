@@ -4,16 +4,17 @@
     "config:best-practices",
     ":disableDependencyDashboard",
     "customManagers:biomeVersions",
-    "group:allNonMajor",
-    "packages:react",
-    "group:definitelyTyped"
+    "...group:allNonMajor",
+    "...group:nextjsMonorepo",
+    "...group:reactMonorepo",
+    "...group:definitelyTyped"
   ],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
 
   "packageRules": [
     {
-      "extends": ["group:linters"],
+      "extends": ["packages:linters"],
       "matchPackageNames": ["@biomejs/biome"]
     }
   ]
