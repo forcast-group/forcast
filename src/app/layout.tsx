@@ -1,7 +1,5 @@
-'use client';
-import { metadata } from '@/config/metadata';
+import { type Metadata } from 'next';
 import localFont from 'next/font/local';
-import { useEffect } from 'react';
 import './globals.css';
 
 const geistSans = localFont({
@@ -15,23 +13,18 @@ const geistMono = localFont({
   weight: '100 900',
 });
 
+export const metadata: Metadata = {
+  title: 'Forcast',
+  description: '',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      import('./__mocks__/index');
-    }
-  }, []);
-
   return (
-    <html lang="ja">
-      <head>
-        <title>{String(metadata.title) || 'Default Title'}</title>
-        <meta name="description" content={metadata.description || 'Default description'} />
-      </head>
+    <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
