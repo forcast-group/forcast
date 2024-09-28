@@ -10,7 +10,7 @@
     "format": "biome format --write ."
   },
   "dependencies": {
-    "next": "14.2.9",
+    "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -20,7 +20,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.9",
+    "eslint-config-next": "14.2.13",
     "lefthook": "^1.7.15",
     "msw": "^2.4.9",
     "postcss": "^8",
